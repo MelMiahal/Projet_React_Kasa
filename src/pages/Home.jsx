@@ -1,13 +1,27 @@
-import { Link } from 'react-router-dom'
+import accommodations from '../Data/logement.json'
+import Banner from '../Components/Banner.jsx'
+import Card from '../Components/Card.jsx'
+import bannerImage from '../assets/IMG.jpg'
 
 function Home() {
 	return (
-		<main>
-			<h1>Accueil Kasa</h1>
-			<p>Bienvenue sur le site de location de logements Kasa.</p>
-			<nav aria-label="Navigation principale">
-				<Link to="/about">À propos</Link>
-			</nav>
+		<main className="home-page">
+			<Banner
+				image={bannerImage}
+				imageAlt="Côte rocheuse bordée par la mer et une forêt"
+				title="Chez vous, partout et ailleurs"
+			/>
+
+			<section className="lodging-list" aria-label="Logements disponibles">
+				{accommodations.map((accommodation) => (
+					<Card
+						key={accommodation.id}
+						id={accommodation.id}
+						title={accommodation.title}
+						cover={accommodation.cover}
+					/>
+				))}
+			</section>
 		</main>
 	)
 }
