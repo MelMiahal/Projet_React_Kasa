@@ -43,11 +43,15 @@ a {
 	gap: 24px;
 
 	&__brand {
-		color: $color-accent;
-		font-size: 40px;
-		font-weight: 700;
-		line-height: 1;
+		display: block;
+		width: 160px;
 		text-decoration: none;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	&__nav {
@@ -182,7 +186,13 @@ a {
 	text-align: center;
 
 	&__brand {
-		font-size: 30px;
+		width: 122px;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	p {
@@ -208,7 +218,7 @@ a {
 		min-height: 76px;
 
 		&__brand {
-			font-size: 32px;
+			width: 110px;
 		}
 
 		&__nav {
@@ -261,5 +271,9 @@ a {
 
 	.site-footer {
 		min-height: 210px;
+
+		&__brand {
+			width: 85px;
+		}
 	}
 }
