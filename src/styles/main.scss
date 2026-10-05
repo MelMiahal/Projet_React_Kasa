@@ -24,6 +24,16 @@ body {
 	margin: 0;
 }
 
+.app-shell {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	> main {
+		flex: 1;
+	}
+}
+
 button,
 a {
 	font: inherit;
@@ -78,6 +88,91 @@ a {
 	margin: 0 auto 50px;
 }
 
+.about-page {
+	width: min(calc(100% - 100px), $content-width);
+	margin: 0 auto 30px;
+
+	&__values {
+		width: min(100%, 1023px);
+		margin: 30px auto 0;
+		display: grid;
+		gap: 24px;
+	}
+}
+
+.collapse {
+	&__heading {
+		margin: 0;
+	}
+
+	&__trigger {
+		width: 100%;
+		min-height: 42px;
+		padding: 10px 20px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		border: 0;
+		border-radius: 5px;
+		background: $color-accent;
+		color: #fff;
+		font-size: 18px;
+		font-weight: 700;
+		text-align: left;
+		cursor: pointer;
+
+		&:focus-visible {
+			outline: 3px solid $color-text;
+			outline-offset: 3px;
+		}
+	}
+
+	&__chevron {
+		width: 12px;
+		height: 12px;
+		flex: 0 0 12px;
+		border-top: 3px solid currentColor;
+		border-left: 3px solid currentColor;
+		transform: translateY(3px) rotate(45deg);
+		transition: transform 220ms ease;
+	}
+
+	&--open &__trigger {
+		border-radius: 5px 5px 0 0;
+	}
+
+	&--open &__chevron {
+		transform: translateY(-3px) rotate(225deg);
+	}
+
+	&__panel {
+		display: grid;
+		grid-template-rows: 0fr;
+		background: $color-surface;
+		transition: grid-template-rows 220ms ease;
+	}
+
+	&--open &__panel {
+		grid-template-rows: 1fr;
+	}
+
+	&__content {
+		min-height: 0;
+		overflow: hidden;
+	}
+
+	&__body {
+		padding: 20px;
+		font-size: 16px;
+		line-height: 1.5;
+
+		p {
+			margin: 0;
+		}
+	}
+}
+
 .banner {
 	position: relative;
 	min-height: 220px;
@@ -111,6 +206,18 @@ a {
 		line-height: 1.2;
 		text-align: center;
 		text-shadow: 0 2px 4px rgb(0 0 0 / 65%);
+	}
+}
+
+.banner--about {
+	min-height: 178px;
+
+	&::after {
+		position: absolute;
+		inset: 0;
+		background: rgb(0 0 0 / 30%);
+		content: '';
+		pointer-events: none;
 	}
 }
 
@@ -174,7 +281,7 @@ a {
 }
 
 .site-footer {
-	min-height: 210px;
+	min-height: 172px;
 	padding: 36px 24px;
 	display: flex;
 	flex-direction: column;
@@ -212,6 +319,16 @@ a {
 	.site-header,
 	.home-page {
 		width: calc(100% - 40px);
+	}
+
+	.about-page {
+		width: calc(100% - 40px);
+		margin-bottom: 27px;
+
+		&__values {
+			margin-top: 20px;
+			gap: 20px;
+		}
 	}
 
 	.site-header {
@@ -252,6 +369,30 @@ a {
 		}
 	}
 
+	.banner--about {
+		min-height: 112px;
+	}
+
+	.collapse {
+		&__trigger {
+			min-height: 38px;
+			padding: 8px 12px;
+			font-size: 13px;
+		}
+
+		&__chevron {
+			width: 10px;
+			height: 10px;
+			flex-basis: 10px;
+			border-width: 2px;
+		}
+
+		&__body {
+			padding: 14px 12px;
+			font-size: 12px;
+		}
+	}
+
 	.lodging-list {
 		margin-top: 22px;
 		padding: 0;
@@ -275,5 +416,12 @@ a {
 		&__brand {
 			width: 85px;
 		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.collapse__chevron,
+	.collapse__panel {
+		transition: none;
 	}
 }

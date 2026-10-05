@@ -4,7 +4,7 @@ import footerLogo from '../assets/LOGO.footer.png'
 
 function Layout() {
 	return (
-		<>
+		<div className="app-shell">
 			<header className="site-header">
 				<Link className="site-header__brand" to="/" aria-label="Kasa, accueil">
 					<img src={headerLogo} alt="" />
@@ -23,7 +23,7 @@ function Layout() {
 				</strong>
 				<p>© Kasa. Tous droits réservés.</p>
 			</footer>
-		</>
+		</div>
 	)
 }
 
