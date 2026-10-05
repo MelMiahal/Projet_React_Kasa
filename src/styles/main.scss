@@ -88,6 +88,11 @@ a {
 	margin: 0 auto 50px;
 }
 
+.lodging-page {
+	width: min(calc(100% - 100px), $content-width);
+	margin: 0 auto 50px;
+}
+
 .about-page {
 	width: min(calc(100% - 100px), $content-width);
 	margin: 0 auto 30px;
@@ -318,6 +323,180 @@ a {
 	}
 }
 
+.slideshow {
+	position: relative;
+	height: 415px;
+	overflow: hidden;
+	border-radius: 25px;
+	background: $color-surface;
+
+	&__image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		width: 80px;
+		height: 100px;
+		padding: 0;
+		display: grid;
+		place-items: center;
+		border: 0;
+		background: transparent;
+		color: #fff;
+		cursor: pointer;
+		transform: translateY(-50%);
+
+		&:focus-visible {
+			outline: 3px solid #fff;
+			outline-offset: -6px;
+		}
+
+		&--previous {
+			left: 0;
+		}
+
+		&--previous .slideshow__chevron {
+			transform: rotate(-45deg);
+		}
+
+		&--next {
+			right: 0;
+		}
+
+		&--next .slideshow__chevron {
+			transform: rotate(135deg);
+		}
+	}
+
+	&__chevron {
+		width: 28px;
+		height: 28px;
+		border-top: 6px solid currentColor;
+		border-left: 6px solid currentColor;
+		filter: drop-shadow(0 1px 2px rgb(0 0 0 / 50%));
+	}
+
+	&__counter {
+		position: absolute;
+		right: 0;
+		bottom: 20px;
+		left: 0;
+		margin: 0;
+		color: #fff;
+		font-size: 18px;
+		font-weight: 500;
+		text-align: center;
+		text-shadow: 0 1px 3px rgb(0 0 0 / 80%);
+	}
+}
+
+.lodging-details {
+	margin: 24px 0;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 24px;
+
+	&__main {
+		min-width: 0;
+	}
+
+	&__title {
+		margin: 0;
+		color: $color-accent;
+		font-size: 36px;
+		font-weight: 500;
+		line-height: 1.25;
+	}
+
+	&__location {
+		margin: 5px 0 20px;
+		font-size: 18px;
+		font-weight: 500;
+	}
+
+	&__tags {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		list-style: none;
+	}
+
+	&__tag {
+		min-width: 115px;
+		padding: 4px 16px;
+		border-radius: 10px;
+		background: $color-accent;
+		color: #fff;
+		font-size: 14px;
+		font-weight: 700;
+		text-align: center;
+	}
+
+	&__host-rating {
+		flex: 0 0 180px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 20px;
+	}
+
+	&__host {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__host-name {
+		max-width: 100px;
+		color: $color-accent;
+		font-size: 18px;
+		font-weight: 500;
+		text-align: right;
+	}
+
+	&__host-picture {
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+
+	&__rating {
+		display: flex;
+		gap: 8px;
+	}
+
+	&__star {
+		color: #e3e3e3;
+		font-size: 26px;
+		line-height: 1;
+
+		&--filled {
+			color: $color-accent;
+		}
+	}
+}
+
+.lodging-info {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 76px;
+
+	&__equipment-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+}
+
 .site-footer {
 	min-height: 172px;
 	padding: 36px 24px;
@@ -355,7 +534,8 @@ a {
 
 @media (max-width: 600px) {
 	.site-header,
-	.home-page {
+	.home-page,
+	.lodging-page {
 		width: calc(100% - 40px);
 	}
 
@@ -408,6 +588,10 @@ a {
 	}
 
 	.home-page {
+		margin-bottom: 27px;
+	}
+
+	.lodging-page {
 		margin-bottom: 27px;
 	}
 
@@ -465,6 +649,89 @@ a {
 
 		&__title {
 			font-size: 16px;
+		}
+	}
+
+	.lodging-details {
+		margin: 15px 0;
+		flex-direction: column;
+		gap: 16px;
+
+		&__title {
+			font-size: 18px;
+			line-height: 1.4;
+		}
+
+		&__location {
+			margin: 5px 0 12px;
+			font-size: 14px;
+		}
+
+		&__tags {
+			gap: 8px;
+		}
+
+		&__tag {
+			min-width: 84px;
+			padding: 3px 12px;
+			border-radius: 5px;
+			font-size: 10px;
+		}
+
+		&__host-rating {
+			width: 100%;
+			flex: 0 0 auto;
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: space-between;
+			gap: 12px;
+		}
+
+		&__host {
+			gap: 8px;
+		}
+
+		&__host-name {
+			max-width: 75px;
+			font-size: 12px;
+		}
+
+		&__host-picture {
+			width: 32px;
+			height: 32px;
+		}
+
+		&__rating {
+			gap: 4px;
+		}
+
+		&__star {
+			font-size: 18px;
+		}
+	}
+
+	.lodging-info {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.slideshow {
+		height: 255px;
+		border-radius: 10px;
+
+		&__arrow {
+			width: 48px;
+			height: 64px;
+		}
+
+		&__chevron {
+			width: 14px;
+			height: 14px;
+			border-width: 3px;
+		}
+
+		&__counter {
+			display: none;
 		}
 	}
 
