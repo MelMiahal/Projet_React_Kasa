@@ -177,7 +177,7 @@ a {
 		flex: 0 0 12px;
 		border-top: 3px solid currentColor;
 		border-left: 3px solid currentColor;
-		transform: translateY(3px) rotate(45deg);
+		transform: translateY(-3px) rotate(225deg);
 		transition: transform 220ms ease;
 	}
 
@@ -186,7 +186,7 @@ a {
 	}
 
 	&--open &__chevron {
-		transform: translateY(-3px) rotate(225deg);
+		transform: translateY(3px) rotate(45deg);
 	}
 
 	&__panel {
