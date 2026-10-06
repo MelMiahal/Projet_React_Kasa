@@ -1,15 +1,14 @@
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import accommodations from '../Data/logement.json'
 import Collapse from '../Components/Collapse.jsx'
 import Slideshow from '../Components/Slideshow.jsx'
-import Error404 from './Error404.jsx'
 
 function Lodging() {
 	const { id } = useParams()
 	const accommodation = accommodations.find((item) => item.id === id)
 
 	if (!accommodation) {
-		return <Error404 />
+		return <Navigate to="/404" replace />
 	}
 
 	const rating = Number(accommodation.rating)

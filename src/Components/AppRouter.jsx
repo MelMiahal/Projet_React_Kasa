@@ -13,6 +13,7 @@ function AppRouter() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="lodging/:id" element={<Lodging />} />
+          <Route path="404" element={<Error404 />} />
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
