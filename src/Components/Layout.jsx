@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom'
-import headerLogo from '../assets/LOGO.header.jpg'
-import footerLogo from '../assets/LOGO.footer.png'
+import headerLogo from '../assets/logo-header.jpg'
+import footerLogo from '../assets/logo-footer.png'
 
 function Layout() {
 	return (

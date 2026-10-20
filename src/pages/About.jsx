@@ -1,5 +1,5 @@
-import Banner from '../Components/Banner.jsx'
-import Collapse from '../Components/Collapse.jsx'
+import Banner from '../components/banner.jsx'
+import Collapse from '../components/collapse.jsx'
 import bannerImage from '../assets/about-mountain.jpg'
 
 const values = [

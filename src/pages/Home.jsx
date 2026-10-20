@@ -1,7 +1,7 @@
-import accommodations from '../Data/logement.json'
-import Banner from '../Components/Banner.jsx'
-import Card from '../Components/Card.jsx'
-import bannerImage from '../assets/IMG.jpg'
+import accommodations from '../data/logement.json'
+import Banner from '../components/banner.jsx'
+import Card from '../components/card.jsx'
+import bannerImage from '../assets/img.jpg'
 
 function Home() {
 	return (
